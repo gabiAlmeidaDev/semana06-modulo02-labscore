@@ -1,3 +1,17 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const studentName = prompt("Qual o nome do aluno?");
+    const studentAge = prompt("Qual a idade do aluno?");
+    const studentClass = prompt("Qual a série do aluno?");
+    const studentSchool = prompt("Qual o nome da escola?");
+    const favoriteDiscipline = prompt("Qual a sua matéria favorita?");
+
+    document.getElementById('student_name').innerText = studentName;
+    document.getElementById('student_age').innerText = studentAge + ' anos';
+    document.getElementById('student_class').innerText = studentClass;
+    document.getElementById('student_school').innerText = studentSchool;
+    document.getElementById('student_favorite_discipline').innerText = favoriteDiscipline;
+});
+
 function calcularMedia(notasArray) {
     let soma = 0;
     for (let i = 0; i < notasArray.length; i++) {
