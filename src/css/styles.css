@@ -1,16 +1,33 @@
 body {
   margin: 1rem;
-  width: 95%;
+  width: 90%;
   padding: 20px;
 }
 
-.page-header {
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 1rem;
-  background-color: darkkhaki;
-  align-content: center;
-  text-align: center;
-  border-radius: 5px;
-  box-shadow: 2px 4px 0px rgba(0, 0, 0, 0.1);
-  border-bottom: 3px solid black;
+.shadowed {
+    background-color: rgba(245, 240, 240, 0.852);
 }
+
+.button_dark_rounded {
+  background-color: rgb(74, 66, 66);
+  color: gainsboro;
+  font-weight: 600;
+  height: 95%;
+  align-self: center;
+  border-radius: 8px;
+
+}
+
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px; /* Altura do rodapé */
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px; /* Espaço à direita */
+}
+
