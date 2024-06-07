@@ -10,6 +10,25 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('student_class').innerText = studentClass;
     document.getElementById('student_school').innerText = studentSchool;
     document.getElementById('student_favorite_discipline').innerText = favoriteDiscipline;
+
+    document.getElementById('btn_add_discipline_row').addEventListener('click', function () {
+        const discipline = prompt("Qual a matéria deseja cadastrar?");
+        const grades = [];
+        let i = 0;
+        while (i < 4) {
+            const grade = parseFloat(prompt(`Informe a nota ${i + 1} da matéria ${discipline}`));
+            if (!isNaN(grade) && grade >= 0 && grade <= 10) {
+                grades.push(grade);
+                i++;
+            } else {
+                alert("Por favor, informe um número válido entre 0 e 10.");
+            }
+        }
+
+        const average = calcularMedia(grades);
+        addDisciplineRow(discipline, grades, average);
+        avaliarMedia(average);
+    });
 });
 
 function calcularMedia(notasArray) {
@@ -21,29 +40,28 @@ function calcularMedia(notasArray) {
 }
 
 function avaliarMedia(media) {
+    const resultElement = document.getElementById('resultadoMedia');
+    resultElement.innerHTML = "";
     if (media > 7) {
-        document.getElementById('resultadoMedia').innerHTML += "Parabéns, você passou na média!<br>";
+        resultElement.innerHTML += "Parabéns, você passou na média!<br>";
     } else {
-        document.getElementById('resultadoMedia').innerHTML += "Infelizmente, você está de recuperação.<br>";
+        resultElement.innerHTML += "Infelizmente, você está de recuperação.<br>";
     }
 }
 
-function calcularNotas() {
-    let nota1 = parseFloat(document.getElementById('nota1').value);
-    let nota2 = parseFloat(document.getElementById('nota2').value);
-    let nota3 = parseFloat(document.getElementById('nota3').value);
-    let nota4 = parseFloat(document.getElementById('nota4').value);
-
-    if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4) || nota1 < 0 || nota1 > 10 || nota2 < 0 || nota2 > 10 || nota3 < 0 || nota3 > 10 || nota4 < 0 || nota4 > 10) {
-        alert("Por favor, insira todas as notas corretamente (0-10).");
-        return;
-    }
-
-    let notas = [nota1, nota2, nota3, nota4];
-    let mediaNotas = calcularMedia(notas);
-    document.getElementById('resultadoMedia').innerHTML = "A média das notas é: " + mediaNotas.toFixed(2) + "<br>";
-    avaliarMedia(mediaNotas);
+function addDisciplineRow(discipline, grades, average) {
+    const tbody = document.getElementById('disciplines_table_body');
+    const newRow = `<tr>
+                      <td>${discipline}</td>
+                      <td>${grades[0]}</td>
+                      <td>${grades[1]}</td>
+                      <td>${grades[2]}</td>
+                      <td>${grades[3]}</td>
+                      <td>${average.toFixed(2)}</td>
+                    </tr>`;
+    tbody.innerHTML += newRow;
 }
+
 
 function imprimirNomes() {
     let aluno1 = document.getElementById('aluno1').value;
