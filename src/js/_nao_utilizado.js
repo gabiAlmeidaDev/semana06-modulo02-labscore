@@ -192,3 +192,18 @@ function encontrarMaiorNumero(numerosArray) {
   }
   return maior;
 }
+
+export function printNames() {
+  let student1 = document.getElementById('aluno1').value;
+  let student2 = document.getElementById('aluno2').value;
+  let student3 = document.getElementById('aluno3').value;
+  let student4 = document.getElementById('aluno4').value;
+
+  let students = [student1, student2, student3, student4];
+
+  let result = '';
+  students.forEach(function (name) {
+    result += name + '<br>';
+  });
+  document.getElementById('resultadoNomes').innerHTML = result;
+}

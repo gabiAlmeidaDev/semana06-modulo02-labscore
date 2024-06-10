@@ -1,16 +1,17 @@
-
 # Mini Projeto - Módulo 2: Interface de Notas e Disciplinas
 
 ## Descrição
 
-Este projeto faz parte do módulo 2 do curso do SENAI. O objetivo deste mini projeto é desenvolver uma interface web que exiba as disciplinas do aluno, suas notas e médias. 
+Este projeto faz parte do módulo 2 do curso do SENAI. O objetivo deste mini projeto é desenvolver uma interface web que exiba as disciplinas do aluno, suas notas e médias.
 
 ## Equipe
+
 - [Barbara Calderon](https://github.com/barbaracalderon)
 - [Daniel Alan Steinheis](https://github.com/danielSteinheisen)
 - [Ederson Sparenberger](https://github.com/esparen)
 - [Gabriela Almeida](https://github.com/gabiAlmeidaDev)
 - [Pamela Vieira](https://github.com/pamelasenai)
+- [Lucas Carnuccio](https://github.com/lucascarnu)
 
 ## Tecnologias Utilizadas
 
@@ -24,9 +25,11 @@ Este projeto faz parte do módulo 2 do curso do SENAI. O objetivo deste mini pro
 SEMANA05-MODULO02-LABSCORE
 ├── index.html
 ├── src
-│   ├── script.js
-│   └── css
-│      └── styles.css
+│   ├── css
+│   │   └── styles.css
+│   └── js
+│       ├── main.js
+│       └── utils.js
 └── README.md
 ```
 
