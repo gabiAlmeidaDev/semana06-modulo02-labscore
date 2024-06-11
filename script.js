@@ -247,6 +247,25 @@ function calcularMedia(notasArray) {
   return soma / notasArray.length;
 }
 
+function maiorMediaEntreAsMaterias(allAverages) {
+  let highestAverage = 0;
+  for (let average of allAverages) {
+    if (average > highestAverage) {
+      highestAverage = average;
+    }
+  }
+  return highestAverage.toFixed(1); 
+}
+//-------------------
+function calculateAllAverages(allAverages) {
+  const resultado = calcularMedia(allAverages);
+  document.querySelector('#general_average_result').textContent = `A média geral do aluno é ${resultado.toFixed(1)}`;
+
+  const highestSubjectAverage = maiorMediaEntreAsMaterias(allAverages);
+  document.getElementById('highest-average').textContent = `A maior média entre as matérias é ${highestSubjectAverage}`;
+}
+//------------------
+
 function toggleMaior() {
   var resultadoMaiorDiv = document.getElementById('resultadoMaior');
   var maiorButton = document.getElementById('maiorButton');
