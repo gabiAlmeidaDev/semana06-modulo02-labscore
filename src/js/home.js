@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
         tbody.innerHTML += newRow;
     });
 
+    updateGeneralAverage(disciplinesData);
+
     document.getElementById('btn_add_discipline_row').addEventListener('click', addDisciplineRow);
 
     function addDisciplineRow() {
@@ -59,11 +61,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td>${average.toFixed(1)}</td>
             </tr>`;
         tbody.innerHTML += newRow;
+
+        updateGeneralAverage(disciplinesData);
     }
 
     function calculateAverage(grades) {
         let sum = 0;
         grades.forEach(grade => sum += grade);
         return sum / grades.length;
+    }
+
+    function updateGeneralAverage(disciplines) {
+        const allAverages = disciplines.map(discipline => calculateAverage([discipline.nota1, discipline.nota2, discipline.nota3, discipline.nota4]));
+        const generalAverage = calculateAverage(allAverages);
+        document.getElementById('general_average_result').textContent = `A média geral do aluno é ${generalAverage.toFixed(1)}`;
     }
 });
