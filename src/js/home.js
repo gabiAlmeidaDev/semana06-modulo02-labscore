@@ -133,4 +133,16 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
     }
+
+    fetch('http://localhost:3000/alunos')
+        .then(response => response.json())
+        .then(data => {
+            const studentsList = document.querySelector('#students_section ul');
+            data.forEach(student => {
+                const li = document.createElement('li');
+                li.textContent = student.nome;
+                studentsList.appendChild(li);
+            });
+        })
+        .catch(error => console.error('Erro ao buscar lista de alunos:', error));
 });
